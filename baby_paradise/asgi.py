@@ -1,5 +1,5 @@
 """
-ASGI config for EComDemo_Backend project.
+ASGI config for baby_paradise project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'EComDemo_Backend.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'baby_paradise.settings')
 
 application = get_asgi_application()
