@@ -1,2 +1,3 @@
 # baby_paradise
-Framework: Django-DRF, Lang: Python
+A light weight ecom-reselling application backend
+Framework: Django-DRF
