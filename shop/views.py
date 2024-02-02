@@ -21,7 +21,6 @@ class ProductViewSet(ModelViewSet):
 
     def get_serializer(self, *args, **kwargs):
         if self.action in ["create","update"]:
-            print("category params")
             return ProductCreateUpdateSerializer(*args, **kwargs)
         return super().get_serializer(*args, **kwargs)
 
