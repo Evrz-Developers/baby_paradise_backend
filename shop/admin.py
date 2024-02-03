@@ -14,6 +14,7 @@ class ProductAdmin(admin.ModelAdmin):
         for product in queryset:
             # Clear primary key to create a new instance
             product.pk = None
+            product.item_code = None
             product.save()
 
         self.message_user(
