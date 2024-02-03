@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&h+5jx#h89tu27s412x84glfmob#$3n2rn$8c&r&g--1f9zy&(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["marginpoint.pythonanywhere.com"]
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
-    'shop.apps.ShopConfig'
+    'shop.apps.ShopConfig',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -132,6 +132,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 
