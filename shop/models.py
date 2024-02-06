@@ -49,7 +49,7 @@ class Product(models.Model):
     description = models.CharField(
         max_length=250, null=True, blank=True, verbose_name='Description')
     item_code = models.CharField(
-        max_length=50, verbose_name='Item Code', unique=True,  blank=True, null=True)
+        max_length=50, verbose_name='Item Code', blank=True, null=True)
     bar_code = models.CharField(max_length=50, blank=True, null=True)
     mrp = models.DecimalField(
         max_digits=10, decimal_places=2, blank=True, null=True, default=0, verbose_name='MRP')
@@ -58,7 +58,7 @@ class Product(models.Model):
     product_image = models.ImageField(
         upload_to='shop/images/products/', null=True, blank=True)
     category = models.ForeignKey(
-        Category, verbose_name='Category', null=True, blank=True, on_delete=models.CASCADE)
+        Category, verbose_name='Category', null=True, blank=True, on_delete=models.CASCADE, related_name='products')
     quantity = models.PositiveIntegerField(
         verbose_name='Quantity', null=True, default=0)
     created_at = models.DateTimeField(default=get_default_created_at)
