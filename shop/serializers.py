@@ -23,18 +23,24 @@ class ProductCreateUpdateSerializer(serializers.ModelSerializer):
         model = Product
         fields = "__all__"
 
-    def create(self, validated_data):
-        # Check if 'item_code' is provided before creating the instance
-        item_code = validated_data.get('item_code')
-        if item_code:
-            print("Item code checked!")
-            # Check if an existing product with the same 'item_code' exists
-            existing_product = Product.objects.filter(
-                item_code=item_code).first()
-            if existing_product:
-                # Handle the case where the 'item_code' is not unique
-                print("Item code is not unique!")
-                raise serializers.ValidationError(
-                    {'item_code': 'Item code must be unique.'})
+    def validate_item_code(self, value):
+        # Treat empty string as None
+        if not value:
+            return None
 
+        # Check if 'item_code' is unique if provided
+        existing_product = Product.objects.filter(item_code=value).first()
+        if existing_product:
+            raise serializers.ValidationError(
+                {'item_code': 'Item code must be unique.'})
+
+        return value
+
+    def create(self, validated_data):
         return super().create(validated_data)
+
+
+class ProductListByCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        exclude = ['category']
