@@ -4,6 +4,8 @@ from shop.models import Category, Product
 from shop.serializers import CategorySerializer, ProductSerializer, ProductCreateUpdateSerializer,ProductListByCategorySerializer
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
+from rest_framework.permissions import AllowAny
+
 
 # CREATE VIEWs / VIEWSETs
 
@@ -11,12 +13,14 @@ from rest_framework import generics
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    permission_classes  = [AllowAny]
 
 
 # FOR PRODUCTS:
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes  = [AllowAny]
 
     def get_serializer_class(self):
         if self.action in ["create", "update"]:
