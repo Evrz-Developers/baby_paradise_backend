@@ -38,6 +38,7 @@ class ProductViewSet(ModelViewSet):
 
 class ProductsByCategoryView(generics.ListAPIView):
     serializer_class = ProductSerializer
+    permission_classes  = [AllowAny]
 
     def get_queryset(self):
         category_id = self.kwargs['category_id']
