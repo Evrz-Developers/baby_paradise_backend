@@ -34,12 +34,12 @@ def get_default_created_at():
     return adjusted_time
 
 
-def compress(image):
+def compress(image, output_format='JPEG', quality=60):
     im = Image.open(image)
     max_size = (800, 800)
     im.thumbnail(max_size)
     buffer = BytesIO()
-    im.save(buffer, format='JPEG', quality=60)
+    im.save(buffer, format=output_format, quality=quality)
     buffer.seek(0)
     return buffer
 
