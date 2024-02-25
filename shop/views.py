@@ -50,3 +50,8 @@ class ProductsByCategoryView(generics.ListAPIView):
 class DocumentDownloadView(generics.RetrieveAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
+    permission_classes = [AllowAny]
+
+    def get_object(self):
+        name = self.kwargs.get('name')
+        return get_object_or_404(Document, name=name)
