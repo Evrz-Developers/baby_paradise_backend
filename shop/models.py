@@ -92,6 +92,21 @@ class Product(models.Model):
         super().save(*args, **kwargs)
 
 
+class Document(models.Model):
+    name = models.CharField(
+        max_length=30, verbose_name='Name',
+        blank=True)
+    file = models.FileField(upload_to='shop/documents/',
+                            verbose_name='File')
+
+    class Meta:
+        verbose_name = 'Document'
+        verbose_name_plural = 'Documents'
+
+    def __str__(self) -> str:
+        return self.name
+
+
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_admin = models.BooleanField(default=False)

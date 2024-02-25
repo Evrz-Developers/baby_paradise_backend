@@ -1,7 +1,7 @@
 # 4. CREATE SERIALIZERS
 # Serializers define the API representation.
 from rest_framework import serializers
-from shop.models import Product, Category
+from shop.models import Product, Category, Document
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -44,3 +44,9 @@ class ProductListByCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         exclude = ['category']
+
+
+class DocumentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Document
+        fields = "__all__"
