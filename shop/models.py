@@ -95,7 +95,7 @@ class Product(models.Model):
 class Document(models.Model):
     name = models.CharField(
         max_length=30, verbose_name='Name',
-        blank=True)
+        unique=True)
     file = models.FileField(upload_to='shop/documents/',
                             verbose_name='File')
 

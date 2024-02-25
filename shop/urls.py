@@ -18,7 +18,7 @@ router.register('product', ProductViewSet, basename='product')
 urlpatterns = [
     path('product/category/<int:category_id>/',
          ProductsByCategoryView.as_view(), name='products_by_category'),
-    path('document/download/<int:pk>/',
+    path('document/download/<str:name>/',
          DocumentDownloadView.as_view(), name='document-download'),
 
 ] + router.urls
