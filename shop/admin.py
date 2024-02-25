@@ -1,10 +1,9 @@
 from django.contrib import admin
-from shop.models import Product, Category
+from shop.models import Product, Category, Document
 from django.utils.translation import ngettext
 from django.contrib import messages
 
 # 3. REGISTER THE MODELS
-admin.site.register(Category)
 
 
 class ProductAdmin(admin.ModelAdmin):
@@ -29,4 +28,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     duplicate_selected.short_description = "Duplicate selected products"
 
+
+admin.site.register(Category)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(Document)

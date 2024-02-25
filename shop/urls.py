@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework import routers
-from shop.views import CategoryViewSet, ProductViewSet, ProductsByCategoryView
+from shop.views import CategoryViewSet, ProductViewSet, ProductsByCategoryView, DocumentDownloadView
 
 #  6. CREATE AND ADD URLS
 
@@ -15,5 +15,10 @@ router.register('product', ProductViewSet, basename='product')
 
 # Get the generated URLs from the router, and then adds them to the urlpatterns
 
-urlpatterns = [path('product/category/<int:category_id>/', ProductsByCategoryView.as_view(), name='products_by_category'),
-               ] + router.urls
+urlpatterns = [
+    path('product/category/<int:category_id>/',
+         ProductsByCategoryView.as_view(), name='products_by_category'),
+    path('document/download/<int:pk>/',
+         DocumentDownloadView.as_view(), name='document-download'),
+
+] + router.urls
