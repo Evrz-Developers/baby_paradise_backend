@@ -1,3 +1,3 @@
 # baby_paradise
-A light weight ecom-reselling application backend
+A light weight ecom application backend
 Framework: Django-DRF
