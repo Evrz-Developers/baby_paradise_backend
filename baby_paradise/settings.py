@@ -146,7 +146,12 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ]
 }
-from .localsettings import *  # noqa
+
+# Attempt to import local settings if they exist
+try:
+    from .localsettings import *  # noqa
+except ImportError:
+    pass  # localsettings.py does not exist, continue with default settings
 
 if DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
