@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ["marginpoint.pythonanywhere.com"]
 
 # Application definition
 
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,7 +43,6 @@ INSTALLED_APPS = [
     'shop.apps.ShopConfig',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -147,3 +147,13 @@ REST_FRAMEWORK = {
     ]
 }
 from .localsettings import *  # noqa
+
+if DEBUG:
+    CORS_ALLOW_ALL_ORIGINS = True
+else:
+    CORS_ALLOWED_ORIGINS = [
+        # "http://localhost:3000/",
+        # "http://127.0.0.1:3000/",
+        "https://marginpoint.netlify.app/",
+        "https://babyparadisestore.netlify.app/",
+    ]

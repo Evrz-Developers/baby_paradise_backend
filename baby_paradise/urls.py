@@ -3,6 +3,7 @@ from django.urls import path, include
 
 app_url_patterns = [
     path('shop/', include('shop.urls'))
+    
 ]
 
 urlpatterns = [
